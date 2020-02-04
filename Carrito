@@ -30,12 +30,4 @@ public class Carrito {
 		
 		return precioCarrito;
 	}
-	
-	
-	
-	//añadir este método al diagrama
-	public int numeroProductos(ArrayList carrito) {
-		
-		return carrito.size();
-	}
 }
