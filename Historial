@@ -1,0 +1,13 @@
+package diagrama;
+
+import java.util.ArrayList;
+
+public class Historial {
+	int numCompra;
+	private ArrayList<Pedido> listaPedidos;
+	
+	public Historial(ArrayList<Pedido> listaPedidos) {
+		this.listaPedidos = listaPedidos;
+	}
+	
+}
