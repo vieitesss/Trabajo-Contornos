@@ -1,0 +1,40 @@
+package diagrama;
+
+import java.util.ArrayList;
+
+public class Ropa extends Producto {
+	String color;
+	String talla;
+	ArrayList<Ropa> listaRopa = new ArrayList<Ropa>();
+	
+	public Ropa() {
+		
+	}
+	
+	public Ropa(String nombre, double precio, String foto, String color, String talla) {
+		this.nombre = nombre;
+		this.precio = precio;
+		this.foto = foto;
+		this.color = color;
+		this.talla = talla;
+	}
+	
+	public void crearRopa() {
+		Ropa r1 = new Ropa( "sudadera", 40.95, "imagen sudadera", "verde", "M");
+		Ropa r2= new Ropa("pantalon", 25.50, "imagen pantalon", "rojo", "S");
+		Ropa r3 = new Ropa ("camiseta", 15.95, "imagen camiseta", "blanco", "XL");
+		Ropa r4 = new Ropa ("jersey", 30.95, "imagen jersey", "negro", "S");
+		Ropa r5 = new Ropa("camisa", 20.50, "imagen camisa", "azul", "M");
+		listaRopa.add(r1);
+		listaRopa.add(r2);
+		listaRopa.add(r3);
+		listaRopa.add(r4);
+		listaRopa.add(r5);
+	}
+	
+	public void imprimirRopa() {
+		for(int i = 0; i < listaRopa.size(); i++) {
+			System.out.println(String.format("%5s %5s %-10s %-1s %-6s %-1s", (i + 1), "|", listaRopa.get(i).nombre, "|", listaRopa.get(i).precio, "E"));
+		}
+	}
+}
