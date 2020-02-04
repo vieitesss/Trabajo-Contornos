@@ -1,0 +1,144 @@
+package diagrama;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Usuario {
+	private String nombre;
+	private String contraseña;
+	private String email;
+	private String direccionEnvio;
+	private String paypal;
+	private String tlf;
+	private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+
+	Usuario(){
+		
+	}
+	
+	public Usuario(String nombre,  String email, String contraseña, String direccionEnvio, String paypal, String tlf) {
+		this.nombre = nombre;
+		this.contraseña = contraseña;
+		this.email = email;
+		this.direccionEnvio = direccionEnvio;
+		this.paypal = paypal;
+		this.tlf = tlf;
+	}
+	
+	public ArrayList<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(Usuario u) {
+		usuarios.add(u);
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getContraseña() {
+		return contraseña;
+	}
+
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getDireccionEnvio() {
+		return direccionEnvio;
+	}
+
+	public void setDireccionEnvio(String direccionEnvio) {
+		this.direccionEnvio = direccionEnvio;
+	}
+
+	public String getPaypal() {
+		return paypal;
+	}
+
+	public void setPaypal(String paypal) {
+		this.paypal = paypal;
+	}
+
+	public String getTlf() {
+		return tlf;
+	}
+
+	public void setTlf(String tlf) {
+		this.tlf = tlf;
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Usuario u = new Usuario();
+		Alimentacion a = new Alimentacion();
+		Ropa r = new Ropa();
+		Electronica e = new Electronica();
+		
+		a.crearAlimentos();
+		r.crearRopa();
+		e.crearElectronica();
+		
+		int option;
+		
+		System.out.println("Número de usuarios: " + u.getUsuarios().size() + "\t\t(Si el número de usuarios el 0, escoja la opción 1)\t NOTA: "
+				+ "Una vez sales del programa, se pierden los usuarios");
+		System.out.println("\nNuevo usuario (1)");
+		System.out.println("Escoger productos (2)");
+		System.out.print("\nOpción: ");
+		option = sc.nextInt();
+		
+		switch(option) {
+		case 1:
+			String nombre;
+			String email;
+			String contraseña;
+			String direccionEnvio;
+			String paypal;
+			String tlf;
+			
+			System.out.print("Introduce un nombre de usuario: "); 
+			nombre = sc.next();
+			System.out.print("\nEmail: " ); 
+			email = sc.next();
+			System.out.print("\nContraseña: "); 
+			contraseña = sc.next();
+			System.out.print("\nDireccion: "); 
+			direccionEnvio = sc.next();
+			System.out.print("\nNúmero de cuenta Paypal: "); 
+			paypal = sc.next();
+			System.out.print("\nNúmero de teléfono: "); 
+			tlf = sc.next();
+			
+			Usuario u1 = new Usuario(nombre, email, contraseña, direccionEnvio, paypal, tlf);
+			u.setUsuarios(u1);
+			System.out.println("Usuario creado");
+			
+			System.out.println(u.getUsuarios().get(0).contraseña);
+			break;
+		case 2:
+			System.out.println("\n1- Alimentación");
+			a.imprimirAlimentos();
+			System.out.println("2- Ropa");
+			r.imprimirRopa();
+			System.out.println("3- Electrónica");
+			e.imprimirElectronica();
+			
+			
+		}
+	}
+	
+}
