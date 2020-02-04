@@ -1,0 +1,41 @@
+package diagrama;
+
+import java.util.ArrayList;
+
+public class Carrito {
+	int numProductos;
+	
+	//array al que se le van añadiendo productos para calcular el precio total del carrito
+
+	ArrayList <Double> carrito = new ArrayList<Double>();
+	
+	//debe ser un atributo de la clase porque si se pone en el método se crearía un arraylist
+	//nuevo cada vez que se llama al método
+	
+	
+	
+	public double calcularPrecio(Producto p) { //añadir el atributo al diagrama
+		
+		double precioCarrito = 0;
+		
+		//añade los precios de los productos al carrito
+		
+		carrito.add(p.precio);
+		
+		//suma los precios de los productos
+		
+		for(int i = 0; i < carrito.size(); i++) {
+			precioCarrito += carrito.get(i);
+		}
+		
+		return precioCarrito;
+	}
+	
+	
+	
+	//añadir este método al diagrama
+	public int numeroProductos(ArrayList carrito) {
+		
+		return carrito.size();
+	}
+}
