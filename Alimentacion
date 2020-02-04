@@ -1,0 +1,49 @@
+package diagrama;
+
+import java.util.ArrayList;
+
+public class Alimentacion extends Producto {
+	String procedencia;
+	double valorEnergetico;
+	String tipoPaquete;
+	ArrayList<Alimentacion> listaAlimentos = new ArrayList<Alimentacion>();
+	
+	public double valorEnergeticoTotal() {
+		double total = 0;
+		return total;
+	}
+	
+	public Alimentacion() {
+		
+	}
+	
+	public void crearAlimentos() {
+		Alimentacion a1 = new Alimentacion("platano", 0.50, "imagen platano", "canarias", 122, "estándar");
+		Alimentacion a2 = new Alimentacion("pera", 0.33, "imagen pera","valencia", 57, "estándar");
+		Alimentacion a3 = new Alimentacion("naranja", 0.45, "imagen naranja", "marruecos", 35, "especial");
+		Alimentacion a4 = new Alimentacion("manzana", 0.6, "imagen manzana", "asturias", 52, "estándar");
+		Alimentacion a5 = new Alimentacion("melón", 1.2, "imagen melón", "japón", 34, "especial");
+		
+		listaAlimentos.add(a1);
+		listaAlimentos.add(a2);
+		listaAlimentos.add(a3);
+		listaAlimentos.add(a4);
+		listaAlimentos.add(a5);
+		
+	}
+	
+	public Alimentacion(String nombre, double precio, String foto, String procedencia, double valorEnergetico, String tipoPaquete) {
+		this.nombre = nombre;
+		this.precio = precio;
+		this.foto = foto;
+		this.procedencia = procedencia;
+		this.valorEnergetico = valorEnergetico;
+		this.tipoPaquete = tipoPaquete;
+	}
+	
+	public void imprimirAlimentos() {
+		for(int i = 0; i < listaAlimentos.size(); i++) {
+			System.out.println(String.format("%5s %5s %-10s %-1s %-6s %-1s", (i + 1), "|", listaAlimentos.get(i).nombre, "|", listaAlimentos.get(i).precio, "E"));
+		}
+	}
+}
