@@ -26,6 +26,7 @@ public class Producto {
 		
 		Electronica e1 = new Electronica ("television", 879.99, "imagen television", "Samsung");
 		Electronica e2 = new Electronica ("movil", 179.99, "imagen movil", "Xiaomi");
+		
 
 
 	}
@@ -59,6 +60,6 @@ public class Producto {
 		Electronica e1 = new Electronica ("television", 879.99, "imagen television", "Samsung");
 		Electronica e2 = new Electronica ("movil", 179.99, "imagen movil", "Xiaomi");
 
-hola
+
 	}
 }
