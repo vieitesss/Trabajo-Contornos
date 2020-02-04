@@ -1,0 +1,55 @@
+package diagrama;
+
+import java.util.ArrayList;
+
+public class Pedido {
+	private double precioFinal;
+	private String fechaPedido;
+	private String fechaEntrega;
+	private boolean entregado;
+	private ArrayList<Producto> listaProductos;
+	
+	public Pedido(ArrayList<Producto> listaProductos) {
+		this.listaProductos = listaProductos;
+	}
+	
+	public void calcularTiempoEntrega(String fechaPedido, String fechaEntrega) { //falta poner los atributos en el diagrama
+		
+	}
+	
+	public void añadirHistorial() {
+		
+	}
+
+	public double getPrecioFinal() {
+		return precioFinal;
+	}
+
+	public void setPrecioFinal(double precioFinal) {
+		this.precioFinal = precioFinal;
+	}
+
+	public String getFechaPedido() {
+		return fechaPedido;
+	}
+
+	public void setFechaPedido(String fechaPedido) {
+		this.fechaPedido = fechaPedido;
+	}
+
+	public String getFechaEntrega() {
+		return fechaEntrega;
+	}
+
+	public void setFechaEntrega(String fechaEntrega) {
+		this.fechaEntrega = fechaEntrega;
+	}
+
+	public boolean isEntregado() {
+		return entregado;
+	}
+
+	public void setEntregado(boolean entregado) {
+		this.entregado = entregado;
+	}
+}
