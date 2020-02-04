@@ -1,0 +1,9 @@
+package diagrama;
+
+public class Categoria {
+	String codigoCategoria;
+	
+	public Categoria(String codigoCategoria) {
+		this.codigoCategoria = codigoCategoria;
+	}
+}
