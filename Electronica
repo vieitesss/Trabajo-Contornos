@@ -1,0 +1,38 @@
+package diagrama;
+
+import java.util.ArrayList;
+
+public class Electronica extends Producto {
+	String modelo;
+	ArrayList<Electronica> listaElectronica  = new ArrayList<Electronica>();
+	
+	public Electronica() {
+		
+	}
+	
+	public Electronica(String nombre, double precio, String foto, String modelo) {
+		this.nombre = nombre;
+		this.precio = precio;
+		this.foto = foto;
+		this.modelo = modelo;
+	}
+	
+	public void crearElectronica() {
+		Electronica e1 = new Electronica ("television", 879.99, "imagen television", "Samsung");
+		Electronica e2 = new Electronica ("movil", 179.99, "imagen movil", "Xiaomi");
+		Electronica e3 = new Electronica ("usb", 15.50, "imagen usb", "Disk");
+		Electronica e4 = new Electronica ("portatil", 659.99, "imagen portatil", "Apple");
+		Electronica e5 = new Electronica ("tablet", 199.99, "imagen tablet", "Apple");
+		listaElectronica.add(e1);
+		listaElectronica.add(e2);
+		listaElectronica.add(e3);
+		listaElectronica.add(e4);
+		listaElectronica.add(e5);
+	}
+	public void imprimirElectronica() {
+		for(int i = 0; i < listaElectronica.size(); i++) {
+			System.out.println(String.format("%5s %5s %-10s %-1s %-6s %-1s", (i + 1), "|", listaElectronica.get(i).nombre, "|", listaElectronica.get(i).precio, "E"));
+		}
+	}
+	
+}
