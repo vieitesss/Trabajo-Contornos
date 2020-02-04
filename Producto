@@ -1,0 +1,64 @@
+package diagrama;
+
+import java.util.ArrayList;
+
+public class Producto {
+	String nombre;
+	double precio;
+	String foto;
+	
+	public void crearProductos() {
+		Alimentacion a = new Alimentacion();
+		Ropa r = new Ropa();
+		Electronica e = new Electronica();
+		
+		Alimentacion a1 = new Alimentacion("platano", 0.50, "imagen platano", "canarias", 122, "estándar");
+		Alimentacion a2 = new Alimentacion("pera", 0.33, "imagen pera","valencia", 57, "estándar");
+		Alimentacion a3 = new Alimentacion("naranja", 0.45, "imagen naranja", "marruecos", 35, "especial");
+		Alimentacion a4 = new Alimentacion("manzana", 0.6, "imagen manzana", "asturias", 52, "estándar");
+		Alimentacion a5 = new Alimentacion("melón", 1.2, "imagen melón", "japón", 34, "especial");
+		
+		Ropa r1 = new Ropa( "sudadera", 40.95, "imagen sudadera", "verde", "M");
+		Ropa r2= new Ropa("pantalon", 25.50, "imagen pantalon", "rojo", "S");
+		Ropa r3 = new Ropa ("camiseta", 15.95, "imagen camiseta", "blanco", "XL");
+		Ropa r4 = new Ropa ("jersey", 30.95, "imagen jersey", "negro", "S");
+		Ropa r5 = new Ropa("camisa", 20.50, "imagen camisa", "azul", "M");
+		
+		Electronica e1 = new Electronica ("television", 879.99, "imagen television", "Samsung");
+		Electronica e2 = new Electronica ("movil", 179.99, "imagen movil", "Xiaomi");
+
+
+	}
+}
+package diagrama;
+
+import java.util.ArrayList;
+
+public class Producto {
+	String nombre;
+	double precio;
+	String foto;
+	
+	public void crearProductos() {
+		Alimentacion a = new Alimentacion();
+		Ropa r = new Ropa();
+		Electronica e = new Electronica();
+		
+		Alimentacion a1 = new Alimentacion("platano", 0.50, "imagen platano", "canarias", 122, "estándar");
+		Alimentacion a2 = new Alimentacion("pera", 0.33, "imagen pera","valencia", 57, "estándar");
+		Alimentacion a3 = new Alimentacion("naranja", 0.45, "imagen naranja", "marruecos", 35, "especial");
+		Alimentacion a4 = new Alimentacion("manzana", 0.6, "imagen manzana", "asturias", 52, "estándar");
+		Alimentacion a5 = new Alimentacion("melón", 1.2, "imagen melón", "japón", 34, "especial");
+		
+		Ropa r1 = new Ropa( "sudadera", 40.95, "imagen sudadera", "verde", "M");
+		Ropa r2= new Ropa("pantalon", 25.50, "imagen pantalon", "rojo", "S");
+		Ropa r3 = new Ropa ("camiseta", 15.95, "imagen camiseta", "blanco", "XL");
+		Ropa r4 = new Ropa ("jersey", 30.95, "imagen jersey", "negro", "S");
+		Ropa r5 = new Ropa("camisa", 20.50, "imagen camisa", "azul", "M");
+		
+		Electronica e1 = new Electronica ("television", 879.99, "imagen television", "Samsung");
+		Electronica e2 = new Electronica ("movil", 179.99, "imagen movil", "Xiaomi");
+
+
+	}
+}
