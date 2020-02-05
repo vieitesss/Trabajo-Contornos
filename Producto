@@ -6,6 +6,15 @@ public class Producto {
 	String nombre;
 	double precio;
 	String foto;
-
+	int cantidad;
 	
+	Producto(){
+		
+	}
+
+	Producto(String nombre, double precio, int cantidad){
+		this.nombre = nombre;
+		this.precio = precio;
+		this.cantidad = cantidad;
+	}
 }
