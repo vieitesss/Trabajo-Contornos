@@ -1,6 +1,7 @@
 package diagrama;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Usuario {
@@ -80,6 +81,10 @@ public class Usuario {
 	public void setTlf(String tlf) {
 		this.tlf = tlf;
 	}
+	
+	public static void menu() {
+		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -119,20 +124,21 @@ public class Usuario {
 			
 				System.out.print("Introduce un nombre de usuario: "); 
 				nombre = sc.next();
+				System.out.print("\nDireccion: "); 
+				direccionEnvio = sc.next();
+				System.out.print("\nNúmero de teléfono: "); 
+				tlf = sc.next();
 				System.out.print("\nEmail: " ); 
 				email = sc.next();
 				System.out.print("\nContraseña: "); 
 				contraseña = sc.next();
-				System.out.print("\nDireccion: "); 
-				direccionEnvio = sc.next();
 				System.out.print("\nNúmero de cuenta Paypal: "); 
 				paypal = sc.next();
-				System.out.print("\nNúmero de teléfono: "); 
-				tlf = sc.next();
 			
 				Usuario u1 = new Usuario(nombre, email, contraseña, direccionEnvio, paypal, tlf);
 				u.setUsuarios(u1);
 				System.out.println("Usuario creado");
+				menu();
 				break;
 				
 			case 2:
@@ -143,90 +149,45 @@ public class Usuario {
 				System.out.println("3- Electrónica");
 				e.imprimirElectronica();
 			
-				System.out.println("Escoge el producto que quieras de la siguiente forma: 1(espacio)2 "
-					+ "--> pera.");
-				System.out.println("Se añadirá al carrito automáticamente");
-				System.out.println("Escribe \"0 0\" para salir.");
+				System.out.println("\nEscoge el producto que quieras de la siguiente forma: \"Categoría\"(espacio)\"Producto\"(espacio)\"Cantidad\" ");
+				System.out.println("Por ejemplo: \"2 5 4\" --> 4 camisas");
+				System.out.println("Se añadirán al carrito automáticamente.");
+				System.out.println("Escribe \"0 0 0\" y pulsa ENTER para salir.\n");
 			
 				while(true) {
-					System.out.print("Categoría y producto");
+					System.out.print("Categoría, producto y cantidad: ");
 					int categoria = sc.nextInt();
 					int producto = sc.nextInt();
-				
-					if(categoria == 0 & producto == 0) {
+					int cantidad = sc.nextInt();
+					
+					if(categoria == 0 & producto == 0 & cantidad == 0) {
 						break;
 					}
-				
-					switch(categoria) {
-					case 1: //Entra el alimentacion
-						switch(producto) {
-						case 1: //Primer alimento
-							c.carrito.add(a.listaAlimentos.get(0));
-							break;
-						case 2:
-							c.carrito.add(a.listaAlimentos.get(1));
-							break;
-						case 3:
-							c.carrito.add(a.listaAlimentos.get(2));
-							break;
-						case 4:
-							c.carrito.add(a.listaAlimentos.get(3));
-							break;
-						case 5:
-							c.carrito.add(a.listaAlimentos.get(4));
-							break;
-						}
-						break;
-					case 2://Entra en Ropa
-						switch(producto) {
-						case 1: 
-							c.carrito.add(r.listaRopa.get(0));
-							break;
-						case 2:
-							c.carrito.add(r.listaRopa.get(1));
-							break;
-						case 3:
-							c.carrito.add(r.listaRopa.get(2));
-							break;
-						case 4:
-							c.carrito.add(r.listaRopa.get(3));
-							break;
-						case 5:
-							c.carrito.add(r.listaRopa.get(4));
-							break;
-						}
-						break;
-					case 3://Entra en Electronica
-						switch(producto) {
-						case 1: 
-							c.carrito.add(e.listaElectronica.get(0));
-							break;
-						case 2:
-							c.carrito.add(e.listaElectronica.get(1));
-							break;
-						case 3:
-							c.carrito.add(e.listaElectronica.get(2));
-							break;
-						case 4:
-							c.carrito.add(e.listaElectronica.get(3));
-							break;
-						case 5:
-							c.carrito.add(e.listaElectronica.get(4));
-							break;
-						}
-						break;
-					}
+					c.añadirCarrito(categoria, producto, cantidad);
+					
 				}
-			
+				menu();
 				break;
 			case 3:
 				if(c.carrito.size() == 0) {
 					System.out.println("El carrio está vacío");
 				}else {
-					for(int i = 0; i < c.carrito.size(); i++) {
-						System.out.println(c.carrito.get(i).nombre);
+					System.out.println("");
+					System.out.println("Número de productos: " + c.carrito.size() + "\n");
+					
+					System.out.println(String.format("%-10s %-1s %-8s %-1s %-8s", "PRODUCTO", "|", "CANTIDAD", "|", "PRECIO"));
+					System.out.println("-------------------------------");					
+					
+					for(Producto p : c.carrito) {
+						System.out.println(String.format("%-10s %-5s %-4s %-1s %-8s",p.nombre, "|", p.cantidad,  "|", (p.precio * p.cantidad)));
 					}
 				}
+				
+				//Salir del carrito
+				String volver = "";
+				System.out.print("\nPulsa cualquier tecla y ENTER para volver ");
+				volver = sc.next();
+				menu();
 				break;
 			case 5:
 				salir = true;
