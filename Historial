@@ -4,10 +4,34 @@ import java.util.ArrayList;
 
 public class Historial {
 	int numCompra;
-	private ArrayList<Pedido> listaPedidos;
+	ArrayList<Producto> listaPedidos;
 	
-	public Historial(ArrayList<Pedido> listaPedidos) {
+	public Historial() {
+		
+	}
+	
+	public Historial(ArrayList<Producto> listaPedidos) {
 		this.listaPedidos = listaPedidos;
 	}
 	
+	public void llenarHistorial(ArrayList<Producto> carrito){
+		listaPedidos = carrito;
+	}
+	
+	public void imprimirHistorial(int numeroCarritos){
+		Pedido p = new Pedido();
+		Historial h = new Historial();
+		Carrito c = new Carrito();
+		for(int i = 0; i < numeroCarritos; i++){
+			System.out.println("\nPedido " + (i + 1) + ":\n");
+			System.out.println("PRODUCTOS");
+			System.out.println("----------");
+			for(Producto pr : listaPedidos) {
+				System.out.println(pr.nombre);
+			}
+			System.out.println("Precio total: " + p.getPrecioFinal(listaPedidos));
+		}
+		
+		
+	}
 }
