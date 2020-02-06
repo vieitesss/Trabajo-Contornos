@@ -3,31 +3,76 @@ package diagrama;
 import java.util.ArrayList;
 
 public class Carrito {
-	int numProductos;
+	ArrayList <Producto> carrito = new ArrayList<Producto>();
 	
-	//array al que se le van añadiendo productos para calcular el precio total del carrito
-
-	ArrayList <Double> carrito = new ArrayList<Double>();
+	public void añadirCarrito(int categoria, int producto, int cantidad) {
+		Carrito c = new Carrito();
+		Alimentacion a = new Alimentacion();
+		Ropa r = new Ropa();
+		Electronica e = new Electronica();
+		
+		a.crearAlimentos();
+		r.crearRopa();
+		e.crearElectronica();
 	
-	//debe ser un atributo de la clase porque si se pone en el método se crearía un arraylist
-	//nuevo cada vez que se llama al método
-	
-	
-	
-	public double calcularPrecio(Producto p) { //añadir el atributo al diagrama
-		
-		double precioCarrito = 0;
-		
-		//añade los precios de los productos al carrito
-		
-		carrito.add(p.precio);
-		
-		//suma los precios de los productos
-		
-		for(int i = 0; i < carrito.size(); i++) {
-			precioCarrito += carrito.get(i);
+		switch(categoria) {
+		case 1: //Entra el alimentacion
+			switch(producto) {
+			case 1: //Primer alimento
+				carrito.add(new Producto(a.listaAlimentos.get(0).nombre, a.listaAlimentos.get(0).precio, cantidad));
+				break;
+			case 2:
+				carrito.add(new Producto(a.listaAlimentos.get(1).nombre, a.listaAlimentos.get(1).precio, cantidad));
+				break;
+			case 3:
+				carrito.add(new Producto(a.listaAlimentos.get(2).nombre, a.listaAlimentos.get(2).precio, cantidad));
+				break;
+			case 4:
+				carrito.add(new Producto(a.listaAlimentos.get(3).nombre, a.listaAlimentos.get(3).precio, cantidad));
+				break;
+			case 5:
+				carrito.add(new Producto(a.listaAlimentos.get(4).nombre, a.listaAlimentos.get(4).precio, cantidad));
+				break;
+			}
+			break;
+		case 2://Entra en Ropa
+			switch(producto) {
+			case 1: 
+				carrito.add(new Producto(r.listaRopa.get(0).nombre, r.listaRopa.get(0).precio, cantidad));
+				break;
+			case 2:
+				carrito.add(new Producto(r.listaRopa.get(1).nombre, r.listaRopa.get(1).precio, cantidad));
+				break;
+			case 3:
+				carrito.add(new Producto(r.listaRopa.get(2).nombre, r.listaRopa.get(2).precio, cantidad));
+				break;
+			case 4:
+				carrito.add(new Producto(r.listaRopa.get(3).nombre, r.listaRopa.get(3).precio, cantidad));
+				break;
+			case 5:
+				carrito.add(new Producto(r.listaRopa.get(4).nombre, r.listaRopa.get(4).precio, cantidad));
+				break;
+			}
+			break;
+		case 3://Entra en Electronica
+			switch(producto) {
+			case 1: 
+				carrito.add(new Producto(e.listaElectronica.get(0).nombre, e.listaElectronica.get(0).precio, cantidad));
+				break;
+			case 2:
+				carrito.add(new Producto(e.listaElectronica.get(1).nombre, e.listaElectronica.get(1).precio, cantidad));
+				break;
+			case 3:
+				carrito.add(new Producto(e.listaElectronica.get(2).nombre, e.listaElectronica.get(2).precio, cantidad));
+				break;
+			case 4:
+				carrito.add(new Producto(e.listaElectronica.get(3).nombre, e.listaElectronica.get(3).precio, cantidad));
+				break;
+			case 5:
+				carrito.add(new Producto(e.listaElectronica.get(4).nombre, e.listaElectronica.get(4).precio, cantidad));
+				break;
+			}
+			break;
 		}
-		
-		return precioCarrito;
 	}
 }
