@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Carrito {
 	ArrayList <Producto> carrito = new ArrayList<Producto>();
+	int numeroCarritos = 0;
 	
 	public void añadirCarrito(int categoria, int producto, int cantidad) {
 		Carrito c = new Carrito();
