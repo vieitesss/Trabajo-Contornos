@@ -121,6 +121,7 @@ public class Usuario {
 		
 		int option;
 		
+		
 		while(!salir) {
 			System.out.println("\n");
 			System.out.println("Número de usuarios: " + u.getUsuarios().size() + "\t\t(Si el número de usuarios el 0, escoja la opción 1)\t NOTA: "
@@ -136,6 +137,7 @@ public class Usuario {
 		
 			switch(option) {
 			case 1:
+				String s = sc.nextLine();
 				System.out.print("Introduce un nombre de usuario: "); 
 				u.setNombre(sc.next());
 				System.out.print("\nDireccion: "); 
@@ -152,6 +154,7 @@ public class Usuario {
 				Usuario u1 = new Usuario(u.getNombre(), u.getEmail(), u.getContraseña(), u.getDireccionEnvio(), u.getPaypal(), u.getTlf());
 				u.setUsuarios(u1);
 				System.out.println("Usuario creado");
+				espera(1000);
 				menu();
 				break;
 				
