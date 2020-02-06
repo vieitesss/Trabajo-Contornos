@@ -98,6 +98,10 @@ public class Usuario {
 		try {Thread.sleep(x);}
 		catch(Exception ignored){}
 	}
+	
+	/*public void calcularPrecioFinal(ArrayList<Producto> carrito) {
+		
+	}*/
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -107,6 +111,7 @@ public class Usuario {
 		Electronica e = new Electronica();
 		Carrito c = new Carrito();
 		Pedido p = new Pedido();
+		Historial h = new Historial();
 		
 		a.crearAlimentos();
 		r.crearRopa();
@@ -124,33 +129,27 @@ public class Usuario {
 			System.out.println("Escoger productos (2)");
 			System.out.println("Ver carrito (3)");
 			System.out.println("Realizar pedido (4)");
-			System.out.println("Salir (5)");
-			System.out.print("\nOpci�n: ");
+			System.out.println("Ver historial de pedidos (5)");
+			System.out.println("Salir (6)");
+			System.out.print("\nOpción: ");
 			option = sc.nextInt();
 		
 			switch(option) {
 			case 1:
-				String nombre;
-				String email;
-				String contraseña;
-				String direccionEnvio;
-				String paypal;
-				String tlf;
-			
 				System.out.print("Introduce un nombre de usuario: "); 
-				nombre = sc.next();
+				u.setNombre(sc.next());
 				System.out.print("\nDireccion: "); 
-				direccionEnvio = sc.next();
+				u.setDireccionEnvio(sc.next());
 				System.out.print("\nNúmero de teléfono: "); 
-				tlf = sc.next();
+				u.setTlf(sc.next());
 				System.out.print("\nEmail: " ); 
-				email = sc.next();
+				u.setEmail(sc.next());
 				System.out.print("\nContraseña: "); 
-				contraseña = sc.next();
+				u.setContraseña(sc.next());
 				System.out.print("\nNúmero de cuenta Paypal: "); 
-				paypal = sc.next();
+				u.setPaypal(sc.next());
 			
-				Usuario u1 = new Usuario(nombre, email, contraseña, direccionEnvio, paypal, tlf);
+				Usuario u1 = new Usuario(u.getNombre(), u.getEmail(), u.getContraseña(), u.getDireccionEnvio(), u.getPaypal(), u.getTlf());
 				u.setUsuarios(u1);
 				System.out.println("Usuario creado");
 				menu();
@@ -186,6 +185,7 @@ public class Usuario {
 						}
 						c.añadirCarrito(categoria, producto, cantidad);
 					}
+					c.numeroCarritos += 1;
 					menu();
 				}
 					break;
@@ -225,18 +225,43 @@ public class Usuario {
 					espera(1000);
 				}
 				else {
-					System.out.println("Este es tu carrito:\n");
+					System.out.println("\nEste es tu carrito:\n");
 					System.out.println(String.format("%-10s %-1s %-8s %-1s %-8s", "PRODUCTO", "|", "CANTIDAD", "|", "PRECIO"));
 					System.out.println("-------------------------------");	
 					for(Producto pr : c.carrito) {
 						System.out.println(String.format("%-10s %-5s %-4s %-1s %-8s",pr.nombre, "|", pr.cantidad,  "|", (pr.precio * pr.cantidad)));
 					}
-					p.calcularPrecioFinal(c.carrito);
-					System.out.print("El precio total es: " + p.getPrecioFinal());
+					System.out.print("\nEl precio total es: " + p.getPrecioFinal(c.carrito));
+					
+					System.out.print("\n\nQuieres realizar el pedido? (S/N): ");
+					String respuesta = sc.next();
+					if(respuesta.toLowerCase().equals("s")) {
+						System.out.println("\nEl envío llegará a tu dirección(" + u.getDireccionEnvio() + ") en 20 días");
+						p.pedidos.add(c.numeroCarritos);
+						h.llenarHistorial(c.carrito);
+					}
 				}
+				//Salir del pedido
+				String letra = "";
+				System.out.print("\nPulsa una letra y ENTER para salir: ");
+				letra = sc.next();
 				menu();
 				break;
 			case 5:
+				if(p.pedidos.size() == 0) {
+					System.out.println("No se han realizado pedidos.");
+					espera(1000);
+				}
+				else {
+					h.imprimirHistorial(c.numeroCarritos);
+					//Salir Historial
+					letra = "";
+					System.out.print("\nPulsa una letra y ENTER para salir: ");
+					letra = sc.next();
+				}
+				menu();
+				break;
+			case 6:
 				salir = true;
 				break;
 			}
