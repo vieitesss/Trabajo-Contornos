@@ -2,77 +2,48 @@ package diagrama;
 
 import java.util.ArrayList;
 
-public class Carrito {
-	ArrayList <Producto> carrito = new ArrayList<Producto>();
+public class Alimentacion extends Producto {
+	String procedencia;
+	double valorEnergetico;
+	String tipoPaquete;
+	public ArrayList<Alimentacion> listaAlimentos = new ArrayList<Alimentacion>();
 	
-	public void añadirCarrito(int categoria, int producto, int cantidad) {
-		Carrito c = new Carrito();
-		Alimentacion a = new Alimentacion();
-		Ropa r = new Ropa();
-		Electronica e = new Electronica();
+	public double valorEnergeticoTotal() {
+		double total = 0;
+		return total;
+	}
+	
+	public Alimentacion() {
 		
-		a.crearAlimentos();
-		r.crearRopa();
-		e.crearElectronica();
+	}
 	
-		switch(categoria) {
-		case 1: //Entra el alimentacion
-			switch(producto) {
-			case 1: //Primer alimento
-				carrito.add(new Producto(a.listaAlimentos.get(0).nombre, a.listaAlimentos.get(0).precio, cantidad));
-				break;
-			case 2:
-				carrito.add(new Producto(a.listaAlimentos.get(1).nombre, a.listaAlimentos.get(1).precio, cantidad));
-				break;
-			case 3:
-				carrito.add(new Producto(a.listaAlimentos.get(2).nombre, a.listaAlimentos.get(2).precio, cantidad));
-				break;
-			case 4:
-				carrito.add(new Producto(a.listaAlimentos.get(3).nombre, a.listaAlimentos.get(3).precio, cantidad));
-				break;
-			case 5:
-				carrito.add(new Producto(a.listaAlimentos.get(4).nombre, a.listaAlimentos.get(4).precio, cantidad));
-				break;
-			}
-			break;
-		case 2://Entra en Ropa
-			switch(producto) {
-			case 1: 
-				carrito.add(new Producto(r.listaRopa.get(0).nombre, r.listaRopa.get(0).precio, cantidad));
-				break;
-			case 2:
-				carrito.add(new Producto(r.listaRopa.get(1).nombre, r.listaRopa.get(1).precio, cantidad));
-				break;
-			case 3:
-				carrito.add(new Producto(r.listaRopa.get(2).nombre, r.listaRopa.get(2).precio, cantidad));
-				break;
-			case 4:
-				carrito.add(new Producto(r.listaRopa.get(3).nombre, r.listaRopa.get(3).precio, cantidad));
-				break;
-			case 5:
-				carrito.add(new Producto(r.listaRopa.get(4).nombre, r.listaRopa.get(4).precio, cantidad));
-				break;
-			}
-			break;
-		case 3://Entra en Electronica
-			switch(producto) {
-			case 1: 
-				carrito.add(new Producto(e.listaElectronica.get(0).nombre, e.listaElectronica.get(0).precio, cantidad));
-				break;
-			case 2:
-				carrito.add(new Producto(e.listaElectronica.get(1).nombre, e.listaElectronica.get(1).precio, cantidad));
-				break;
-			case 3:
-				carrito.add(new Producto(e.listaElectronica.get(2).nombre, e.listaElectronica.get(2).precio, cantidad));
-				break;
-			case 4:
-				carrito.add(new Producto(e.listaElectronica.get(3).nombre, e.listaElectronica.get(3).precio, cantidad));
-				break;
-			case 5:
-				carrito.add(new Producto(e.listaElectronica.get(4).nombre, e.listaElectronica.get(4).precio, cantidad));
-				break;
-			}
-			break;
+	public void crearAlimentos() {
+		Alimentacion a1 = new Alimentacion("platano", 0.50, "imagen platano", "canarias", 122, "est�ndar");
+		Alimentacion a2 = new Alimentacion("pera", 0.33, "imagen pera","valencia", 57, "est�ndar");
+		Alimentacion a3 = new Alimentacion("naranja", 0.45, "imagen naranja", "marruecos", 35, "especial");
+		Alimentacion a4 = new Alimentacion("manzana", 0.6, "imagen manzana", "asturias", 52, "est�ndar");
+		Alimentacion a5 = new Alimentacion("mel�n", 1.2, "imagen mel�n", "jap�n", 34, "especial");
+		
+		listaAlimentos.add(a1);
+		listaAlimentos.add(a2);
+		listaAlimentos.add(a3);
+		listaAlimentos.add(a4);
+		listaAlimentos.add(a5);
+		
+	}
+	
+	public Alimentacion(String nombre, double precio, String foto, String procedencia, double valorEnergetico, String tipoPaquete) {
+		this.nombre = nombre;
+		this.precio = precio;
+		this.foto = foto;
+		this.procedencia = procedencia;
+		this.valorEnergetico = valorEnergetico;
+		this.tipoPaquete = tipoPaquete;
+	}
+	
+	public void imprimirAlimentos() {
+		for(int i = 0; i < listaAlimentos.size(); i++) {
+			System.out.println(String.format("%5s %5s %-10s %-1s %-6s %-1s", (i + 1), "|", listaAlimentos.get(i).nombre, "|", listaAlimentos.get(i).precio, "E"));
 		}
 	}
 }
