@@ -4,14 +4,8 @@ import java.util.ArrayList;
 
 public class Pedido {
 	private double precioFinal;
-	private String fechaPedido;
-	private String fechaEntrega;
 	private boolean entregado;
-	private ArrayList<Producto> listaProductos;
-	
-	public Pedido(ArrayList<Producto> listaProductos) {
-		this.listaProductos = listaProductos;
-	}
+	ArrayList<Integer> pedidos = new ArrayList<Integer>();
 	
 	public void calcularTiempoEntrega(String fechaPedido, String fechaEntrega) { //falta poner los atributos en el diagrama
 		
@@ -21,28 +15,13 @@ public class Pedido {
 		
 	}
 
-	public double getPrecioFinal() {
-		return precioFinal;
-	}
-
-	public void setPrecioFinal(double precioFinal) {
-		this.precioFinal = precioFinal;
-	}
-
-	public String getFechaPedido() {
-		return fechaPedido;
-	}
-
-	public void setFechaPedido(String fechaPedido) {
-		this.fechaPedido = fechaPedido;
-	}
-
-	public String getFechaEntrega() {
-		return fechaEntrega;
-	}
-
-	public void setFechaEntrega(String fechaEntrega) {
-		this.fechaEntrega = fechaEntrega;
+	public double getPrecioFinal(ArrayList<Producto> carrito) {
+		Pedido p = new Pedido();
+		double precioF = 0;
+		for(Producto pr : carrito) {
+			precioF += (pr.precio * pr.cantidad);
+		}
+		return precioF;
 	}
 
 	public boolean isEntregado() {
