@@ -6,14 +6,6 @@ public class Pedido {
 	private double precioFinal;
 	private boolean entregado;
 	ArrayList<Integer> pedidos = new ArrayList<Integer>();
-	
-	public void calcularTiempoEntrega(String fechaPedido, String fechaEntrega) { //falta poner los atributos en el diagrama
-		
-	}
-	
-	public void añadirHistorial() {
-		
-	}
 
 	public double getPrecioFinal(ArrayList<Producto> carrito) {
 		Pedido p = new Pedido();
