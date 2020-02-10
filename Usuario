@@ -112,6 +112,7 @@ public class Usuario {
 		Carrito c = new Carrito();
 		Pedido p = new Pedido();
 		Historial h = new Historial();
+		CompañiaEnvio ce = new CompañiaEnvio();
 		
 		a.crearAlimentos();
 		r.crearRopa();
@@ -238,6 +239,16 @@ public class Usuario {
 					System.out.print("\n\nQuieres realizar el pedido? (S/N): ");
 					String respuesta = sc.next();
 					if(respuesta.toLowerCase().equals("s")) {
+						System.out.println("\nEscoge la compañía de envío:");
+						System.out.println("\tCorreos: 5 € (1)");
+						System.out.println("\tMRW: 3 € (2)");
+						System.out.println("\tDHL: 4 € (3)");
+						
+						System.out.print("Compañia: ");
+						int compañia = sc.nextInt();
+						
+						System.out.println("El nuevo precio final es: " + ce.elegirCompañia(compañia, p.getPrecioFinal(c.carrito)));
+						
 						System.out.println("\nEl envío llegará a tu dirección(" + u.getDireccionEnvio() + ") en 20 días");
 						p.pedidos.add(c.numeroCarritos);
 						h.llenarHistorial(c.carrito);
