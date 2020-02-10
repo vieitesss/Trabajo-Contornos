@@ -121,7 +121,6 @@ public class Usuario {
 		
 		int option;
 		
-		
 		while(!salir) {
 			System.out.println("\n");
 			System.out.println("Número de usuarios: " + u.getUsuarios().size() + "\t\t(Si el número de usuarios el 0, escoja la opción 1)\t NOTA: "
@@ -139,18 +138,18 @@ public class Usuario {
 			case 1:
 				String s = sc.nextLine();
 				System.out.print("Introduce un nombre de usuario: "); 
-				u.setNombre(sc.next());
+				u.setNombre(sc.nextLine());
 				System.out.print("\nDireccion: "); 
-				u.setDireccionEnvio(sc.next());
+				u.setDireccionEnvio(sc.nextLine());
 				System.out.print("\nNúmero de teléfono: "); 
-				u.setTlf(sc.next());
+				u.setTlf(sc.nextLine());
 				System.out.print("\nEmail: " ); 
-				u.setEmail(sc.next());
+				u.setEmail(sc.nextLine());
 				System.out.print("\nContraseña: "); 
-				u.setContraseña(sc.next());
+				u.setContraseña(sc.nextLine());
 				System.out.print("\nNúmero de cuenta Paypal: "); 
-				u.setPaypal(sc.next());
-			
+				u.setPaypal(sc.nextLine());
+				
 				Usuario u1 = new Usuario(u.getNombre(), u.getEmail(), u.getContraseña(), u.getDireccionEnvio(), u.getPaypal(), u.getTlf());
 				u.setUsuarios(u1);
 				System.out.println("Usuario creado");
@@ -243,11 +242,12 @@ public class Usuario {
 						p.pedidos.add(c.numeroCarritos);
 						h.llenarHistorial(c.carrito);
 					}
+					String letra = "";
+					System.out.print("\nPulsa una letra y ENTER para salir: ");
+					letra = sc.next();
 				}
-				//Salir del pedido
-				String letra = "";
-				System.out.print("\nPulsa una letra y ENTER para salir: ");
-				letra = sc.next();
+				
+				
 				menu();
 				break;
 			case 5:
@@ -258,7 +258,7 @@ public class Usuario {
 				else {
 					h.imprimirHistorial(c.numeroCarritos);
 					//Salir Historial
-					letra = "";
+					String letra = "";
 					System.out.print("\nPulsa una letra y ENTER para salir: ");
 					letra = sc.next();
 				}
