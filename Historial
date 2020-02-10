@@ -10,10 +10,6 @@ public class Historial {
 		
 	}
 	
-	public Historial(ArrayList<Producto> listaPedidos) {
-		this.listaPedidos = listaPedidos;
-	}
-	
 	public void llenarHistorial(ArrayList<Producto> carrito){
 		listaPedidos = carrito;
 	}
