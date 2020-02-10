@@ -2,19 +2,16 @@ package diagrama;
 
 public class CompañiaEnvio {
 	double precioEntrega;
-
-	public double elegirCompañia(int x) {
-		Pedido p = new Pedido();
-		Carrito c = new Carrito();
-		double precioEnvio = p.getPrecioFinal(c.carrito);
+	
+	public double elegirCompañia(int x, double precioFinal) {
 		if (x == 1){
-			  precioEnvio += 5;
+			  precioFinal += 5;
 		}else if(x == 2){
-			 precioEnvio += 3;
+			 precioFinal += 3;
 		}else if(x == 3){
-			 precioEnvio +=4;
+			 precioFinal +=4;
 		}
-		return precioEnvio;
+		return precioFinal;
 		
 	}
 }
